@@ -1,0 +1,41 @@
+<%= form_for(@gas_heat_calculator) do |f| %>
+  <% if @gas_heat_calculator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gas_heat_calculator.errors.count, "error") %> prohibited this gas_heat_calculator from being saved:</h2>
+
+      <ul>
+      <% @gas_heat_calculator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mixed_air_volume %><br>
+    <%= f.text_field :mixed_air_volume %>
+  </div>
+  <div class="field">
+    <%= f.label :outside_air_volume %><br>
+    <%= f.text_field :outside_air_volume %>
+  </div>
+  <div class="field">
+    <%= f.label :return_air_volume %><br>
+    <%= f.text_field :return_air_volume %>
+  </div>
+  <div class="field">
+    <%= f.label :mixed_air_temp %><br>
+    <%= f.text_field :mixed_air_temp %>
+  </div>
+  <div class="field">
+    <%= f.label :supply_air_temp %><br>
+    <%= f.text_field :supply_air_temp %>
+  </div>
+  <div class="field">
+    <%= f.label :supply_air_volume %><br>
+    <%= f.text_field :supply_air_volume %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

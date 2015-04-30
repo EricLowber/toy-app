@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421190406) do
+ActiveRecord::Schema.define(version: 20150430144211) do
+
+  create_table "gas_heat_calculators", force: :cascade do |t|
+    t.float    "mixed_air_volume"
+    t.float    "outside_air_volume"
+    t.float    "return_air_volume"
+    t.float    "mixed_air_temp"
+    t.float    "supply_air_temp"
+    t.float    "supply_air_volume"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
