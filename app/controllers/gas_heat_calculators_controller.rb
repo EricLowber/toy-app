@@ -25,14 +25,13 @@ class GasHeatCalculatorsController < ApplicationController
   # POST /gas_heat_calculators.json
   def create
     @gas_heat_calculator = GasHeatCalculator.new(gas_heat_calculator_params)
-
     respond_to do |format|
       if @gas_heat_calculator.save
-        format.html { redirect_to @gas_heat_calculator, notice: 'Gas heat calculator was successfully created.' }
-        format.json { render :show, status: :created, location: @gas_heat_calculator }
+        flash[:notice] = "Gas heat calculator was successfully created."
+        redirect_to @gas_heat_calculator
       else
-        format.html { render :new }
-        format.json { render json: @gas_heat_calculator.errors, status: :unprocessable_entity }
+        flash[:error] = "There was an error creating the calculator"
+        render :new 
       end
     end
   end
@@ -42,11 +41,11 @@ class GasHeatCalculatorsController < ApplicationController
   def update
     respond_to do |format|
       if @gas_heat_calculator.update(gas_heat_calculator_params)
-        format.html { redirect_to @gas_heat_calculator, notice: 'Gas heat calculator was successfully updated.' }
-        format.json { render :show, status: :ok, location: @gas_heat_calculator }
+        flash[:notice] = 'Gas heat calculator was successfully updated.' 
+        redirect_to @gas_heat_calculator   
       else
-        format.html { render :edit }
-        format.json { render json: @gas_heat_calculator.errors, status: :unprocessable_entity }
+        flash[:error] = "There was an error updating the calculator"
+        render :edit 
       end
     end
   end
@@ -56,8 +55,8 @@ class GasHeatCalculatorsController < ApplicationController
   def destroy
     @gas_heat_calculator.destroy
     respond_to do |format|
-      format.html { redirect_to gas_heat_calculators_url, notice: 'Gas heat calculator was successfully destroyed.' }
-      format.json { head :no_content }
+    flash[:alert] = "Gas heat calculator was successfully destroyed."
+    redirect_to gas_heat_calculators_url
     end
   end
 
