@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users
 
  
-  root 'welcome#index'
+  root 'gas_heat_calculators#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
