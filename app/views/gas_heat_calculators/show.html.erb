@@ -6,8 +6,18 @@
 </p>
 
 <p>
+  <strong>Outside air temp:</strong>
+  <%= @gas_heat_calculator.outside_air_temp %>
+</p>
+
+<p>
   <strong>Outside air volume:</strong>
   <%= @gas_heat_calculator.outside_air_volume %>
+</p>
+
+<p>
+  <strong>Return air temp:</strong>
+  <%= @gas_heat_calculator.return_air_temp %>
 </p>
 
 <p>
@@ -29,6 +39,8 @@
   <strong>Supply air volume:</strong>
   <%= @gas_heat_calculator.supply_air_volume %>
 </p>
+
+
 
 <%= link_to 'Edit', edit_gas_heat_calculator_path(@gas_heat_calculator) %> |
 <%= link_to 'Back', gas_heat_calculators_path %>

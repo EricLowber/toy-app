@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505204439) do
+ActiveRecord::Schema.define(version: 20150514193215) do
 
   create_table "gas_heat_calculators", force: :cascade do |t|
     t.float    "mixed_air_volume"
@@ -22,7 +22,14 @@ ActiveRecord::Schema.define(version: 20150505204439) do
     t.float    "supply_air_volume"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "user_id"
+    t.float    "outside_air_temp"
+    t.float    "return_air_temp"
   end
+
+  add_index "gas_heat_calculators", ["outside_air_temp"], name: "index_gas_heat_calculators_on_outside_air_temp"
+  add_index "gas_heat_calculators", ["return_air_temp"], name: "index_gas_heat_calculators_on_return_air_temp"
+  add_index "gas_heat_calculators", ["user_id"], name: "index_gas_heat_calculators_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
